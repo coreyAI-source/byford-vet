@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Byford Vet Hospital</title>
+  <meta name="description" content="Are you looking for a friendly small animal vet in the Byford area? Whether your animal is furred, feathered or scaled, we can help you keep them healthy.">
+  <link rel="canonical" href="https://byfordvet.com.au/">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green:   #3d7a5c;
+      --green-light: #e8f2ed;
+      --navy:    #1a2a3a;
+      --navy-mid: #2c3e50;
+      --sand:    #f7f4ef;
+      --white:   #ffffff;
+      --text:    #2d2d2d;
+      --text-muted: #6b7280;
+      --border:  #e5e7eb;
+      --radius:  8px;
+      --transition: 0.2s ease;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--text);
+      background: var(--white);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── TOP BAR ── */
+    .topbar {
+      background: var(--navy);
+      color: rgba(255,255,255,0.8);
+      font-size: 13px;
+      padding: 8px 0;
+    }
+    .topbar-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      justify-content: flex-end;
+      gap: 24px;
+    }
+    .topbar a {
+      color: rgba(255,255,255,0.8);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color var(--transition);
+    }
+    .topbar a:hover { color: var(--white); }
+    .topbar svg { width: 14px; height: 14px; flex-shrink: 0; }
+
+    /* ── NAVBAR ── */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+    }
+    .navbar-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--navy);
+      text-decoration: none;
+      line-height: 1.2;
+    }
+    .logo span { color: var(--green); }
+
+    nav { display: flex; align-items: center; gap: 4px; }
+
+    nav a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-decoration: none;
+      padding: 8px 14px;
+      border-radius: var(--radius);
+      transition: color var(--transition), background var(--transition);
+    }
+    nav a:hover { color: var(--text); background: var(--sand); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 10px 22px;
+      border-radius: var(--radius);
+      text-decoration: none;
+      transition: all var(--transition);
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background: var(--green);
+      color: var(--white);
+    }
+    .btn-primary:hover { background: #2f6349; }
+    .btn-outline {
+      background: transparent;
+      color: var(--green);
+      border: 1.5px solid var(--green);
+    }
+    .btn-outline:hover { background: var(--green-light); }
+
+    /* ── LAYOUT HELPERS ── */
+    .section {
+      padding: 96px 24px;
+    }
+    .section-sm { padding: 64px 24px; }
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .section-label {
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1.25;
+      margin-bottom: 20px;
+    }
+    .section-body {
+      font-size: 16px;
+      color: var(--text-muted);
+      max-width: 600px;
+      line-height: 1.8;
+    }
+    .divider {
+      width: 40px;
+      height: 3px;
+      background: var(--green);
+      border-radius: 2px;
+      margin-bottom: 20px;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--sand);
+      padding: 80px 24px 0;
+      overflow: hidden;
+    }
+    .hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: end;
+      gap: 64px;
+    }
+    .hero-content { padding-bottom: 80px; }
+    .hero-content .section-label { margin-bottom: 16px; }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(32px, 5vw, 56px);
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1.2;
+      margin-bottom: 24px;
+    }
+    .hero-body {
+      font-size: 17px;
+      color: var(--text-muted);
+      margin-bottom: 36px;
+      line-height: 1.8;
+    }
+    .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+    .hero-image {
+      position: relative;
+      align-self: end;
+    }
+    .hero-image img {
+      width: 100%;
+      display: block;
+      border-radius: 12px 12px 0 0;
+      object-fit: cover;
+      max-height: 480px;
+    }
+
+    /* ── INTRO STRIP ── */
+    .intro-strip {
+      background: var(--green);
+      color: var(--white);
+    }
+    .intro-strip .container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+    }
+    .intro-item {
+      padding: 40px 36px;
+      border-right: 1px solid rgba(255,255,255,0.15);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .intro-item:last-child { border-right: none; }
+    .intro-icon {
+      width: 44px;
+      height: 44px;
+      background: rgba(255,255,255,0.15);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .intro-icon svg { width: 22px; height: 22px; color: var(--white); }
+    .intro-item-text strong { display: block; font-size: 15px; font-weight: 600; }
+    .intro-item-text span { font-size: 13px; opacity: 0.8; }
+
+    /* ── ABOUT ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .about-img {
+      border-radius: 12px;
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      background: var(--green-light);
+    }
+    .about-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    /* ── SERVICES ── */
+    .section-bg { background: var(--sand); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 48px;
+    }
+    .service-card {
+      background: var(--white);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      transition: box-shadow var(--transition), transform var(--transition);
+    }
+    .service-card:hover {
+      box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+      transform: translateY(-4px);
+    }
+    .service-card-img {
+      height: 200px;
+      overflow: hidden;
+      background: var(--green-light);
+    }
+    .service-card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+    .service-card:hover .service-card-img img { transform: scale(1.04); }
+    .service-card-body { padding: 28px; }
+    .service-card-body h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+    .service-card-body p { font-size: 14px; color: var(--text-muted); }
+
+    /* ── PUPPY CLASSES ── */
+    .puppy-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .puppy-img {
+      border-radius: 12px;
+      overflow: hidden;
+      aspect-ratio: 3/4;
+      background: var(--green-light);
+    }
+    .puppy-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .badge {
+      display: inline-block;
+      background: var(--green-light);
+      color: var(--green);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 100px;
+      margin-bottom: 20px;
+    }
+
+    /* ── NEWS / SOCIAL ── */
+    .news-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      margin-top: 48px;
+    }
+    .news-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 36px;
+    }
+    .news-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      color: var(--navy);
+      margin-bottom: 16px;
+    }
+    .news-card p { color: var(--text-muted); font-size: 15px; margin-bottom: 24px; }
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--green);
+      font-weight: 600;
+      font-size: 14px;
+      text-decoration: none;
+      transition: gap var(--transition);
+    }
+    .social-link:hover { gap: 12px; }
+    .social-link svg { width: 18px; height: 18px; }
+
+    /* ── CAT FRIENDLY ── */
+    .cat-section { background: var(--navy); color: var(--white); }
+    .cat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .cat-grid .section-title { color: var(--white); }
+    .cat-grid .section-body { color: rgba(255,255,255,0.7); }
+    .cat-img {
+      border-radius: 12px;
+      overflow: hidden;
+      aspect-ratio: 1;
+      background: rgba(255,255,255,0.05);
+    }
+    .cat-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .cert-badge {
+      margin-top: 32px;
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 12px;
+      padding: 16px 24px;
+      text-decoration: none;
+    }
+    .cert-badge img { width: 64px; height: auto; border-radius: 6px; }
+    .cert-badge-text strong { display: block; color: var(--white); font-size: 14px; font-weight: 600; }
+    .cert-badge-text span { color: rgba(255,255,255,0.6); font-size: 12px; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy);
+      color: rgba(255,255,255,0.7);
+      padding: 64px 24px 0;
+    }
+    .footer-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .footer-brand .logo { color: var(--white); margin-bottom: 12px; display: inline-block; }
+    .footer-brand .logo span { color: #7ec8a4; }
+    .footer-brand p { font-size: 14px; line-height: 1.7; max-width: 260px; }
+    .footer-col h4 {
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 10px; font-size: 14px; }
+    .footer-col ul li a { color: rgba(255,255,255,0.65); text-decoration: none; transition: color var(--transition); }
+    .footer-col ul li a:hover { color: var(--white); }
+    .footer-col address { font-style: normal; font-size: 14px; line-height: 1.8; }
+    .footer-social {
+      display: flex;
+      gap: 12px;
+      margin-top: 16px;
+    }
+    .footer-social a {
+      width: 36px;
+      height: 36px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      transition: all var(--transition);
+    }
+    .footer-social a:hover { background: var(--green); color: var(--white); }
+    .footer-social svg { width: 16px; height: 16px; }
+
+    .footer-bottom {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 24px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+    }
+    .footer-bottom a { color: rgba(255,255,255,0.5); text-decoration: none; }
+    .footer-bottom a:hover { color: var(--white); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .hero-inner, .about-grid, .puppy-grid, .cat-grid { grid-template-columns: 1fr; gap: 40px; }
+      .hero-image { display: none; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .intro-strip .container { grid-template-columns: 1fr; }
+      .intro-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,0.15); }
+      .intro-item:last-child { border-bottom: none; }
+      .news-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+    }
+
+    @media (max-width: 600px) {
+      .section { padding: 64px 20px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      nav a:not(.btn) { display: none; }
+      .topbar-inner { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <div class="topbar-inner">
+      <a href="tel:95250000">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+        9525 0000
+      </a>
+      <a href="mailto:enquiries@byfordvet.com.au">
+        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+        enquiries@byfordvet.com.au
+      </a>
+    </div>
+  </div>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="navbar-inner">
+      <a href="byford-vet.html" class="logo">Byford <span>Vet</span> Hospital</a>
+      <nav>
+        <a href="byford-vet.html" class="active">Home</a>
+        <a href="byford-vet-consultations.html">Consultations</a>
+        <a href="byford-vet-surgery.html">Surgery</a>
+        <a href="byford-vet-wellness.html">Wellness</a>
+        <a href="byford-vet-about-clinic.html">About</a>
+        <a href="byford-vet-payment.html">Payment</a>
+        <a href="byford-vet-contact.html">Contact</a>
+        <a href="https://pawsapp.com.au/ba?cid=4066" class="btn btn-primary" style="margin-left:8px;">Book Online</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <p class="section-label">Byford, WA 6122</p>
+        <h1 class="hero-title">Are your pets looking for a friendly vet in the Byford area?</h1>
+        <p class="hero-body">Independent, caring, and well equipped — we're here for every furred, feathered, and scaled member of your family.</p>
+        <div class="hero-actions">
+          <a href="https://pawsapp.com.au/ba?cid=4066" class="btn btn-primary">Book Online</a>
+          <a href="/contact" class="btn btn-outline">Contact Us</a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="https://byfordvet.com.au/wp-content/uploads/2018/04/home-byford-vet-clinic-1.jpg" alt="Byford Vet Hospital clinic">
+      </div>
+    </div>
+  </section>
+
+  <!-- INTRO STRIP -->
+  <div class="intro-strip">
+    <div class="container">
+      <div class="intro-item">
+        <div class="intro-icon">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+        </div>
+        <div class="intro-item-text">
+          <strong>2 Clifton Street, Byford WA 6122</strong>
+          <span>Ample parking available</span>
+        </div>
+      </div>
+      <div class="intro-item">
+        <div class="intro-icon">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+        </div>
+        <div class="intro-item-text">
+          <strong>Mon–Fri: 9am–6pm &nbsp;|&nbsp; Sat: 9am–1pm</strong>
+          <span>Sundays &amp; Public Holidays: Closed</span>
+        </div>
+      </div>
+      <div class="intro-item">
+        <div class="intro-icon">
+          <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+        </div>
+        <div class="intro-item-text">
+          <strong><a href="tel:95250000" style="color:inherit;text-decoration:none;">Call 9525 0000</a></strong>
+          <span>We'd love to hear from you</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="section">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-img">
+          <img src="https://byfordvet.com.au/wp-content/uploads/2021/01/vet-clinic-byford.jpg" alt="Inside Byford Vet Hospital">
+        </div>
+        <div>
+          <p class="section-label">About Us</p>
+          <div class="divider"></div>
+          <h2 class="section-title">You've come to the right place</h2>
+          <p class="section-body" style="margin-bottom:16px;">
+            Byford Veterinary Hospital is an independent, well equipped vet clinic in the centre of Byford.
+          </p>
+          <p class="section-body" style="margin-bottom:16px;">
+            Our clinic is homely and our facilities are modern. They include an operating theatre complete with digital x-ray, blood testing, anaesthetic monitoring, ultrasound and dental equipment; species specific consulting rooms and ample parking, along with experienced and caring team members (some of the best in Perth!).
+          </p>
+          <p class="section-body" style="margin-bottom:32px;">
+            More than that, we know how much your pets mean to you because we're animal lovers too. We promise to do our best for them and for you, with our compassionate care, hugs and cuddles and expert veterinary advice.
+          </p>
+          <a href="https://pawsapp.com.au/ba?cid=4066" class="btn btn-primary">Book Online</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PHOTO STRIP -->
+  <div style="display:grid;grid-template-columns:repeat(5,1fr);height:220px;overflow:hidden;">
+    <div style="overflow:hidden;"><img src="https://byfordvet.com.au/wp-content/uploads/2018/04/interior-1.jpg" alt="Byford Vet interior" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s ease;" onmouseover="this.style.transform='scale(1.06)'" onmouseout="this.style.transform='scale(1)'"></div>
+    <div style="overflow:hidden;"><img src="https://byfordvet.com.au/wp-content/uploads/2018/04/interior-2.jpg" alt="Byford Vet interior" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s ease;" onmouseover="this.style.transform='scale(1.06)'" onmouseout="this.style.transform='scale(1)'"></div>
+    <div style="overflow:hidden;"><img src="https://byfordvet.com.au/wp-content/uploads/2018/04/interior-3.jpg" alt="Byford Vet interior" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s ease;" onmouseover="this.style.transform='scale(1.06)'" onmouseout="this.style.transform='scale(1)'"></div>
+    <div style="overflow:hidden;"><img src="https://byfordvet.com.au/wp-content/uploads/2018/04/outside-clinic.jpg" alt="Outside Byford Vet clinic" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s ease;" onmouseover="this.style.transform='scale(1.06)'" onmouseout="this.style.transform='scale(1)'"></div>
+    <div style="overflow:hidden;"><img src="https://byfordvet.com.au/wp-content/uploads/2018/04/interior-4.jpg" alt="Byford Vet interior" style="width:100%;height:100%;object-fit:cover;display:block;transition:transform 0.4s ease;" onmouseover="this.style.transform='scale(1.06)'" onmouseout="this.style.transform='scale(1)'"></div>
+  </div>
+
+  <!-- SERVICES -->
+  <section class="section section-bg">
+    <div class="container">
+      <p class="section-label">What We Offer</p>
+      <div class="divider"></div>
+      <h2 class="section-title">How we can help</h2>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-card-img">
+            <img src="https://byfordvet.com.au/wp-content/uploads/2018/03/consultations-nav.jpg" alt="Consultations">
+          </div>
+          <div class="service-card-body">
+            <h3>Consultations</h3>
+            <p>Thorough, caring consultations for pets of all kinds — whether it's a routine check-up or something that needs immediate attention.</p>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-card-img">
+            <img src="https://byfordvet.com.au/wp-content/uploads/2021/01/vet-surgery-byford.jpg" alt="Surgery and Dental">
+          </div>
+          <div class="service-card-body">
+            <h3>Surgery &amp; Dental</h3>
+            <p>Our modern operating theatre is equipped for a full range of surgical and dental procedures, performed with the utmost care.</p>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-card-img">
+            <img src="https://byfordvet.com.au/wp-content/uploads/2018/03/wellness-1-nav.jpg" alt="Wellness">
+          </div>
+          <div class="service-card-body">
+            <h3>Wellness</h3>
+            <p>Preventative care, vaccinations, and health plans to keep your pet happy and thriving at every stage of life.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PUPPY CLASSES -->
+  <section class="section">
+    <div class="container">
+      <div class="puppy-grid">
+        <div>
+          <span class="badge">New Family Member?</span>
+          <h2 class="section-title">We run puppy classes</h2>
+          <p class="section-body" style="margin-bottom:32px;">
+            Bring your new best friend for 4 weeks of fun, learning and socialisation. Our puppy classes are designed to give your pup the best start in life.
+          </p>
+          <a href="/contact" class="btn btn-primary">Find Out More</a>
+        </div>
+        <div class="puppy-img">
+          <img src="https://byfordvet.com.au/wp-content/uploads/2018/04/puppy-classes.jpg" alt="Puppy classes at Byford Vet Hospital">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEWS & SOCIAL -->
+  <section class="section section-bg">
+    <div class="container">
+      <p class="section-label">Stay Connected</p>
+      <div class="divider"></div>
+      <h2 class="section-title">What's new at Byford Vet Hospital</h2>
+      <div class="news-grid">
+        <div class="news-card">
+          <h3>Special Offers &amp; News</h3>
+          <p>We often have special offers and promotions on our Facebook page, so make sure you like us to see them in your newsfeed. We also have a quarterly newsletter — send us an email to <a href="mailto:byfordvet@gmail.com" style="color:var(--green);">byfordvet@gmail.com</a> if you'd like to subscribe!</p>
+          <a href="https://www.facebook.com/byfordveterinaryhospital/" class="social-link" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            Follow us on Facebook
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          </a>
+        </div>
+        <div class="news-card">
+          <h3>Client Reviews</h3>
+          <p>Want to know what our customers think of our service? Many of them have left fantastic 5-star reviews on Google. If you are an existing client and would like to give us a review, please click below. Your supportive reviews make our hearts sing with happiness.</p>
+          <a href="https://reviewthis.biz/byfordvet" class="btn btn-outline" target="_blank" rel="noopener">Read Our Reviews</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CAT FRIENDLY -->
+  <section class="section cat-section">
+    <div class="container">
+      <div class="cat-grid">
+        <div>
+          <p class="section-label" style="color:#7ec8a4;">Cat Friendly Clinic</p>
+          <div class="divider"></div>
+          <h2 class="section-title">Cats really love coming to see us</h2>
+          <p class="section-body">
+            We understand that cats are not just small dogs — they have unique needs and stress triggers. Our clinic is accredited as a Cat Friendly Clinic, meaning we've taken extra steps to make visits calm and comfortable for your feline family member.
+          </p>
+          <a href="http://catfriendlyclinic.org" class="cert-badge" target="_blank" rel="noopener">
+            <img src="https://byfordvet.com.au/wp-content/uploads/2018/04/cat-friendly-clinic-logo.jpg" alt="Cat Friendly Clinic accreditation logo">
+            <div class="cert-badge-text">
+              <strong>Accredited Cat Friendly Clinic</strong>
+              <span>International Cat Care</span>
+            </div>
+          </a>
+        </div>
+        <div class="cat-img">
+          <img src="https://byfordvet.com.au/wp-content/uploads/2024/07/Untitled-design-12.png" alt="Happy cat at Byford Vet Hospital">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="/" class="logo">Byford <span>Vet</span> Hospital</a>
+        <p>Caring for your small animal needs. An independent, well equipped vet clinic in the heart of Byford, Western Australia.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/byfordveterinaryhospital/" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="/services/consultations">Consultations</a></li>
+          <li><a href="/services/surgery">Surgery &amp; Dental</a></li>
+          <li><a href="/services/wellness">Wellness</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Clinic Hours</h4>
+        <ul>
+          <li>Mon–Fri: 9am–6pm</li>
+          <li>Saturday: 9am–1pm</li>
+          <li>Sunday: Closed</li>
+          <li>Public Holidays: Closed</li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <address>
+          2 Clifton Street<br>
+          Byford WA 6122<br><br>
+          <a href="tel:95250000" style="color:rgba(255,255,255,0.65);text-decoration:none;">9525 0000</a><br>
+          <a href="mailto:enquiries@byfordvet.com.au" style="color:rgba(255,255,255,0.65);text-decoration:none;">enquiries@byfordvet.com.au</a>
+        </address>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; 2024 Byford Vet Hospital. All rights reserved.</span>
+      <a href="http://www.sandytaylor.com.au" target="_blank" rel="noopener">Website by Sandy Taylor Design</a>
+    </div>
+  </footer>
+
+
+<script>
+(function () {
+  /* ── Inject animation styles ── */
+  var s = document.createElement('style');
+  s.textContent = [
+    'body{animation:pageFadeIn 0.35s ease both}',
+    '@keyframes pageFadeIn{from{opacity:0}to{opacity:1}}',
+    '@keyframes revealUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}',
+    '.wa{opacity:0;will-change:opacity,transform}',
+    '.wa.vi{animation:revealUp 0.65s cubic-bezier(0.16,1,0.3,1) both}',
+    'nav a:not(.btn){position:relative;overflow:hidden}',
+    'nav a:not(.btn)::after{content:"";position:absolute;bottom:4px;left:50%;right:50%;height:2px;background:var(--green);border-radius:2px;transition:left 0.25s ease,right 0.25s ease}',
+    'nav a:not(.btn):hover::after,nav a.active::after{left:14px;right:14px}',
+    '.service-card,.news-card,.team-card,.payment-card{transition:box-shadow 0.25s ease,transform 0.25s ease}',
+    '.intro-item{transition:background 0.2s ease}.intro-item:hover{background:rgba(255,255,255,0.08)}',
+    '.btn{transition:all 0.2s ease;position:relative;overflow:hidden}',
+    '.btn::after{content:"";position:absolute;inset:0;background:rgba(255,255,255,0.15);opacity:0;transition:opacity 0.2s ease}',
+    '.btn:hover::after{opacity:1}',
+  ].join('');
+  document.head.appendChild(s);
+
+  /* ── Scroll reveal ── */
+  var SELECTORS = [
+    '.section-title','.section-label','.divider','.body-text',
+    '.service-card','.team-card','.payment-card','.news-card',
+    '.about-img','.info-card','.equipment-item','.wellness-card',
+    '.stat-card','.badge','.cert-badge','.hero-title','.hero-body',
+    '.hero-actions','.hero-image','.intro-item','.price-note',
+    '.two-col > div','.puppy-grid > div','.cat-grid > div',
+    '.gallery-grid > div','.pet-image','.info-box','.emergency-card',
+    '.map-area','.suburb-list','.hours-table','.payment-card-header',
+  ].join(',');
+
+  function init() {
+    /* Stagger grid children */
+    ['.services-grid','.team-grid','.stat-cards','.equipment-grid',
+     '.news-grid','.payment-grid','.wellness-cards','.gallery-grid',
+     '.intro-strip .container'].forEach(function(sel) {
+      document.querySelectorAll(sel).forEach(function(grid) {
+        Array.from(grid.children).forEach(function(child, i) {
+          child.dataset.delay = i * 100;
+        });
+      });
+    });
+
+    var obs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (!entry.isIntersecting) return;
+        var el = entry.target;
+        var delay = parseInt(el.dataset.delay || 0);
+        setTimeout(function() { el.classList.add('vi'); }, delay);
+        obs.unobserve(el);
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -28px 0px' });
+
+    document.querySelectorAll(SELECTORS).forEach(function(el) {
+      el.classList.add('wa');
+      obs.observe(el);
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else { init(); }
+
+  /* ── Page transition on internal links ── */
+  document.addEventListener('click', function(e) {
+    var a = e.target.closest('a[href]');
+    if (!a) return;
+    var href = a.getAttribute('href');
+    if (!href || href.startsWith('http') || href.startsWith('mailto') || href.startsWith('tel') || href.startsWith('#')) return;
+    e.preventDefault();
+    document.body.style.transition = 'opacity 0.22s ease';
+    document.body.style.opacity = '0';
+    setTimeout(function() { window.location.href = href; }, 230);
+  });
+})();
+</script>
+</body>
+</html>
